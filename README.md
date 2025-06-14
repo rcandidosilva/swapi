@@ -28,7 +28,7 @@ We provide a wrapper to launch npm.
 You will only need to run this command when dependencies change in [package.json](package.json).
 
 ```
-./swapi_web/npmw install
+cd swapi_web && ./npmw install
 ```
 
 We use npm scripts and [Webpack][] as our build system.
@@ -37,15 +37,15 @@ Run the following commands in two separate terminals to create a blissful develo
 auto-refreshes when files change on your hard drive.
 
 ```
-./swapi_api/gradlew -x webapp
-./swapi_web/npmw start
+cd swapi_api && ./gradew -x webapp
+cd swapi_web && ./npmw start
 ```
 
 Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
 specifying a newer version in [package.json](package.json). You can also run `./npmw update` and `./npmw install` to manage dependencies.
 Add the `help` flag on any command to see how you can use it. For example, `./npmw help update`.
 
-The `./swapi_web/npmw run` command will list all the scripts available to run for this project.
+The `./npmw run` command will list all the scripts available to run for this project.
 
 ### PWA Support
 
@@ -70,13 +70,13 @@ Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipste
 For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
 
 ```
-./swapi_web/npmw install --save --save-exact leaflet
+cd swapi_web && ./npmw install --save --save-exact leaflet
 ```
 
 To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
 
 ```
-./swapi_web/npmw install --save-dev --save-exact @types/leaflet
+cd swapi_web && ./npmw install --save-dev --save-exact @types/leaflet
 ```
 
 Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
@@ -91,7 +91,7 @@ For further instructions on how to develop with JHipster, have a look at [Using 
 To build the final jar and optimize the swapi_api application for production, run:
 
 ```
-./swapi_api/gradlew -Pprod clean bootJar
+cd swapi_api && ./gradlew -Pprod clean bootJar
 ```
 
 This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
@@ -110,7 +110,7 @@ Refer to [Using JHipster in production][] for more details.
 To package your application as a war in order to deploy it to an application server, run:
 
 ```
-./swapi_api/gradlew -Pprod -Pwar clean bootWar
+cd swapi_api && ./gradlew -Pprod -Pwar clean bootWar
 ```
 
 ### JHipster Control Center
@@ -128,7 +128,7 @@ docker compose -f src/main/docker/jhipster-control-center.yml up
 To launch your application's tests, run:
 
 ```
-./swapi_api/gradlew test integrationTest jacocoTestReport
+cd swapi_api && ./gradlew test integrationTest jacocoTestReport
 ```
 
 ### Client tests
@@ -136,7 +136,7 @@ To launch your application's tests, run:
 Unit tests are run by [Jest][]. They're located near components and can be run with:
 
 ```
-./npmw test
+cd swapi_web && ./npmw test
 ```
 
 ## Others
@@ -156,7 +156,7 @@ You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqu
 Then, run a Sonar analysis:
 
 ```
-./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.login=admin -Dsonar.password=admin
+cd swapi_api && ./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.login=admin -Dsonar.password=admin
 ```
 
 Additionally, Instead of passing `sonar.password` and `sonar.login` as CLI arguments, these parameters can be configured from [sonar-project.properties](sonar-project.properties) as shown below:
