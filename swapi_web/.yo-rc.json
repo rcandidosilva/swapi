@@ -1,0 +1,16 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "swapi_api",
+    "buildTool": "gradle",
+    "clientFramework": "react",
+    "entities": ["Vehicle", "Starship", "Species", "Person", "Film", "Planet"],
+    "jhipsterVersion": "8.11.0",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1749606913000,
+    "nativeLanguage": "en",
+    "packageName": "com.swapi",
+    "skipServer": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "swapiApiApp": {
+    "planet": {
+      "home": {
+        "title": "Planets",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Planets found"
+      },
+      "detail": {
+        "title": "Planet"
+      },
+      "id": "Id",
+      "created": "Created",
+      "edited": "Edited",
+      "name": "Name",
+      "rotationPeriod": "Rotation Period",
+      "orbitalPeriod": "Orbital Period",
+      "diameter": "Diameter",
+      "climate": "Climate",
+      "gravity": "Gravity",
+      "terrain": "Terrain",
+      "surfaceWater": "Surface Water",
+      "population": "Population",
+      "films": "Films"
+    }
+  }
+}

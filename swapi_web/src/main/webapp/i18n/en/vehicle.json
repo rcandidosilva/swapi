@@ -1,0 +1,30 @@
+{
+  "swapiApiApp": {
+    "vehicle": {
+      "home": {
+        "title": "Vehicles",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Vehicles found"
+      },
+      "detail": {
+        "title": "Vehicle"
+      },
+      "id": "Id",
+      "created": "Created",
+      "edited": "Edited",
+      "name": "Name",
+      "model": "Model",
+      "manufacturer": "Manufacturer",
+      "costInCredits": "Cost In Credits",
+      "length": "Length",
+      "maxAtmospheringSpeed": "Max Atmosphering Speed",
+      "crew": "Crew",
+      "passengers": "Passengers",
+      "cargoCapacity": "Cargo Capacity",
+      "consumables": "Consumables",
+      "vehicleClass": "Vehicle Class",
+      "films": "Films",
+      "pilots": "Pilots"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "swapiApiApp": {
+    "species": {
+      "home": {
+        "title": "Species",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Species found"
+      },
+      "detail": {
+        "title": "Species"
+      },
+      "id": "Id",
+      "created": "Created",
+      "edited": "Edited",
+      "name": "Name",
+      "classification": "Classification",
+      "designation": "Designation",
+      "averageHeight": "Average Height",
+      "skinColors": "Skin Colors",
+      "hairColors": "Hair Colors",
+      "eyeColors": "Eye Colors",
+      "averageLifespan": "Average Lifespan",
+      "languages": "Languages",
+      "homeworld": "Homeworld",
+      "films": "Films",
+      "persons": "Persons"
+    }
+  }
+}

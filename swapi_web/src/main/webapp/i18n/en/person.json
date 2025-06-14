@@ -1,0 +1,30 @@
+{
+  "swapiApiApp": {
+    "person": {
+      "home": {
+        "title": "People",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No People found"
+      },
+      "detail": {
+        "title": "Person"
+      },
+      "id": "Id",
+      "created": "Created",
+      "edited": "Edited",
+      "name": "Name",
+      "height": "Height",
+      "mass": "Mass",
+      "hairColor": "Hair Color",
+      "skinColor": "Skin Color",
+      "eyeyColor": "Eyey Color",
+      "birthYear": "Birth Year",
+      "gender": "Gender",
+      "homeworld": "Homeworld",
+      "species": "Species",
+      "vehicles": "Vehicles",
+      "starships": "Starships",
+      "films": "Films"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "swapiApiApp": {
+    "film": {
+      "home": {
+        "title": "Films",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Films found"
+      },
+      "detail": {
+        "title": "Film"
+      },
+      "id": "Id",
+      "created": "Created",
+      "edited": "Edited",
+      "title": "Title",
+      "episodeId": "Episode Id",
+      "openingCrawl": "Opening Crawl",
+      "director": "Director",
+      "producer": "Producer",
+      "releaseDate": "Release Date",
+      "planets": "Planets",
+      "characters": "Characters",
+      "startships": "Startships",
+      "vehicles": "Vehicles",
+      "species": "Species"
+    }
+  }
+}

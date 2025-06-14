@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "swapi_api",
+    "buildTool": "gradle",
+    "clientFramework": "react",
+    "creationTimestamp": 1749651265338,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "entities": ["Vehicle", "Starship", "Species", "Person", "Film", "Planet"],
+    "jhipsterVersion": "8.11.0",
+    "jwtSecretKey": "OGRhZDUxODBjZDNjNTg1NTYyMzU1MjM2Nzg5MmM3NzliNDNiOTI4YmRjNjJhZDYxYzhmNTVkYzU5YTBlNmQ4MzY2N2Y2M2M5NjYxODJhNmMxNjY3OTNlYjY2ZTk3MWE2N2ZiODNjZmRhYzVmNDQxMmQ0MDc3NzA0ZDNkNTAzNjc=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1749651516000,
+    "nativeLanguage": "en",
+    "packageName": "com.swapi",
+    "skipClient": true
+  }
+}

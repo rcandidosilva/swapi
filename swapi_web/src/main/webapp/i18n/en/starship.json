@@ -1,0 +1,32 @@
+{
+  "swapiApiApp": {
+    "starship": {
+      "home": {
+        "title": "Starships",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Starships found"
+      },
+      "detail": {
+        "title": "Starship"
+      },
+      "id": "Id",
+      "created": "Created",
+      "edited": "Edited",
+      "name": "Name",
+      "model": "Model",
+      "manufacturer": "Manufacturer",
+      "costInCredits": "Cost In Credits",
+      "length": "Length",
+      "maxAtmospheringSpeed": "Max Atmosphering Speed",
+      "crew": "Crew",
+      "passengers": "Passengers",
+      "cargoCapacity": "Cargo Capacity",
+      "consumables": "Consumables",
+      "hyperdriveRating": "Hyperdrive Rating",
+      "mglt": "Mglt",
+      "startshipClass": "Startship Class",
+      "films": "Films",
+      "pilots": "Pilots"
+    }
+  }
+}
