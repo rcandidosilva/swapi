@@ -95,9 +95,7 @@ Unit tests are run by [Jest][]. They're located near components and can be run w
 cd swapi_web && ./npmw test
 ```
 
-## Others
-
-### Docker Compose support
+## Docker Compose support
 
 To start required services in Docker containers, run:
 
