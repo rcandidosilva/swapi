@@ -2,7 +2,9 @@ package com.swapi.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Film (
@@ -13,5 +15,6 @@ public record Film (
         String director,
         String producer,
         @JsonProperty("release_date")
-        LocalDate releaseDate         
+        LocalDate releaseDate,
+        List<String> characters
 ) {}

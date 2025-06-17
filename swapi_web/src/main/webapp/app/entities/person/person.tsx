@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button, Table, Card } from 'reactstrap'
-import { TextFormat, Translate, getSortState, ValidatedForm } from 'react-jhipster'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
-import { APP_DATE_FORMAT } from 'app/config/constants'
-import { ASC, DESC } from 'app/shared/util/pagination.constants'
+import { Translate, getSortState } from 'react-jhipster'
 import { overrideSortStateWithQueryParams } from 'app/shared/util/entity-utils'
 import { useAppDispatch, useAppSelector } from 'app/config/store'
 
-import { getEntities } from './person.reducer'
+import { getEntities, getEntitiesByName } from './person.reducer'
 
 export const Person = () => {
   const dispatch = useAppDispatch()
@@ -21,6 +17,12 @@ export const Person = () => {
 
   const personList = useAppSelector(state => state.person.entities)
   const loading = useAppSelector(state => state.person.loading)
+
+  const [inputSearch, setInputSearch] = useState('');
+
+  const handleInputSearch = (event) => {
+    setInputSearch(event.target.value);
+  };
 
   const getAllEntities = () => {
     dispatch(
@@ -38,29 +40,18 @@ export const Person = () => {
     }
   }
 
+  const getAllEntitiesByName = (name: string) => {
+    dispatch(
+      getEntitiesByName(name),
+    )
+  }
+
   useEffect(() => {
     sortEntities()
   }, [sortState.order, sortState.sort])
 
-  const sort = p => () => {
-    setSortState({
-      ...sortState,
-      order: sortState.order === ASC ? DESC : ASC,
-      sort: p,
-    })
-  }
-
-  const handleSyncList = () => {
-    sortEntities()
-  }
-
-  const getSortIconByFieldName = (fieldName: string) => {
-    const sortFieldName = sortState.sort
-    const order = sortState.order
-    if (sortFieldName !== fieldName) {
-      return faSort
-    }
-    return order === ASC ? faSortUp : faSortDown
+  const handleSearch = () => {
+    getAllEntitiesByName(inputSearch)
   }
 
   return (
@@ -71,13 +62,14 @@ export const Person = () => {
             <div>              
               <p>What are you searching for?</p>              
               <form>
-                <div className="mb-3">
-                  <input type="text" className="form-control"/>
+                <div className="mb-3">                
+                  <input type="text" value={inputSearch} className="form-control" onChange={handleInputSearch}/>
                 </div>
                 <div className="d-grid gap-2">
-                  <button className="btn btn-info rounded-pill" type="button">SEARCH</button>
+                  <Button className="rounded-pill" color="info" onClick={handleSearch} disabled={loading}>                    
+                    SEARCH
+                  </Button>
                 </div>
-
               </form>            
             </div>
           </Card>

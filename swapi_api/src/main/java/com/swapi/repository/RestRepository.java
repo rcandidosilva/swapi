@@ -1,6 +1,8 @@
 package com.swapi.repository;
 
 import com.swapi.config.Constants;
+import com.swapi.service.dto.Film;
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageItem;
 import com.swapi.service.dto.PageList;
 import com.swapi.service.dto.Record;
@@ -39,7 +41,7 @@ public abstract class RestRepository<T> {
             return Optional.empty();
         }
 
-        return Optional.ofNullable(response.getBody().getResult().getProperties());
+        return Optional.ofNullable(response.getBody().result().properties());
     }
 
 

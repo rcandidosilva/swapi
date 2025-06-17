@@ -21,109 +21,65 @@ export const StarshipDetail = () => {
   const starshipEntity = useAppSelector(state => state.starship.entity)
   return (
     <Card className="jh-card">
-      <Row>
+      <Row className='mt-2'>
         <Col md="8">
           <h2 data-cy="starshipDetailsHeading">
-            <Translate contentKey="swapiApiApp.starship.detail.title">Starship</Translate>
+            {starshipEntity.name}
           </h2>
-          <dl className="jh-entity-details">
-            <dt>
-              <span id="id">
-                <Translate contentKey="swapiApiApp.starship.id">Id</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.id}</dd>
-            <dt>
-              <span id="created">
-                <Translate contentKey="swapiApiApp.starship.created">Created</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.created ? <TextFormat value={starshipEntity.created} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
-            <dt>
-              <span id="edited">
-                <Translate contentKey="swapiApiApp.starship.edited">Edited</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.edited ? <TextFormat value={starshipEntity.edited} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
-            <dt>
-              <span id="name">
-                <Translate contentKey="swapiApiApp.starship.name">Name</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.name}</dd>
-            <dt>
-              <span id="model">
-                <Translate contentKey="swapiApiApp.starship.model">Model</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.model}</dd>
-            <dt>
-              <span id="manufacturer">
-                <Translate contentKey="swapiApiApp.starship.manufacturer">Manufacturer</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.manufacturer}</dd>
-            <dt>
-              <span id="costInCredits">
-                <Translate contentKey="swapiApiApp.starship.costInCredits">Cost In Credits</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.costInCredits}</dd>
-            <dt>
-              <span id="length">
-                <Translate contentKey="swapiApiApp.starship.length">Length</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.length}</dd>
-            <dt>
-              <span id="maxAtmospheringSpeed">
-                <Translate contentKey="swapiApiApp.starship.maxAtmospheringSpeed">Max Atmosphering Speed</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.maxAtmospheringSpeed}</dd>
-            <dt>
-              <span id="crew">
-                <Translate contentKey="swapiApiApp.starship.crew">Crew</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.crew}</dd>
-            <dt>
-              <span id="passengers">
-                <Translate contentKey="swapiApiApp.starship.passengers">Passengers</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.passengers}</dd>
-            <dt>
-              <span id="cargoCapacity">
-                <Translate contentKey="swapiApiApp.starship.cargoCapacity">Cargo Capacity</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.cargoCapacity}</dd>
-            <dt>
-              <span id="consumables">
-                <Translate contentKey="swapiApiApp.starship.consumables">Consumables</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.consumables}</dd>
-            <dt>
-              <span id="hyperdriveRating">
-                <Translate contentKey="swapiApiApp.starship.hyperdriveRating">Hyperdrive Rating</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.hyperdriveRating}</dd>
-            <dt>
-              <span id="mglt">
-                <Translate contentKey="swapiApiApp.starship.mglt">Mglt</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.mglt}</dd>
-            <dt>
-              <span id="startshipClass">
-                <Translate contentKey="swapiApiApp.starship.startshipClass">Startship Class</Translate>
-              </span>
-            </dt>
-            <dd>{starshipEntity.startshipClass}</dd>
-          </dl>
+        </Col>
+      </Row>
+      <Row className='mt-5'>
+        <Col md="12">
+          <h5 data-cy="starshipDetailsHeading">
+            Details
+          </h5>
+          <hr className="hr" />
+        </Col>
+      </Row>
+      <Row className='mb-5'>
+        <Col md="12">
+          <table>
+            <tr>
+              <td>Model: {starshipEntity.model}</td> 
+            </tr>
+            <tr>
+              <td>Manufacturer: {starshipEntity.manufacturer}</td> 
+            </tr>
+            <tr>
+              <td>Cost In Credits: {starshipEntity.cost_in_credits}</td> 
+            </tr>
+            <tr>
+              <td>Length: {starshipEntity.length}</td> 
+            </tr>
+            <tr>
+              <td>Max Atmosphering Speed: {starshipEntity.max_atmosphering_speed}</td> 
+            </tr>
+            <tr>
+              <td>Crew: {starshipEntity.crew}</td> 
+            </tr>                        
+            <tr>
+              <td>Passangers: {starshipEntity.passengers}</td> 
+            </tr>                        
+            <tr>
+              <td>Cargo Capacity: {starshipEntity.cargo_capacity}</td> 
+            </tr>                                                
+            <tr>
+              <td>Consumables: {starshipEntity.consumables}</td> 
+            </tr>                                                
+            <tr>
+              <td>Starship Class: {starshipEntity.startship_class}</td> 
+            </tr>            
+            <tr>
+              <td>Hyperdrive Rating: {starshipEntity.hyperdrive_rating}</td> 
+            </tr>            
+            <tr>
+              <td>Mglt: {starshipEntity.mglt}</td> 
+            </tr>                                                
+          </table>
+        </Col>
+      </Row>      
+      <Row className='mt-5'>
+        <Col md="12">
           <Button tag={Link} to="/starship" replace className="rounded-pill" color="info" data-cy="entityDetailsBackButton">
             <span className="d-none d-md-inline">
               BACK TO SEARCH              

@@ -29,22 +29,15 @@ export const FilmDetail = () => {
         </Col>
       </Row>
       <Row className='mt-5'>
-        <Col md="4">
+        <Col md="12">
           <h5 data-cy="filmDetailsHeading">
             Details
           </h5>
           <hr className="hr" />
         </Col>
-        <Col md="1">&nbsp;</Col>
-        <Col md="4">
-          <h5 data-cy="filmDetailsHeading">
-            Characters
-          </h5>
-          <hr className="hr" />
-        </Col>
       </Row>
       <Row className='mb-5'>
-        <Col md="6">
+        <Col md="12">
           <table>
             <tr>
               <td>Episode Id: {filmEntity.episode_id}</td> 
@@ -62,8 +55,6 @@ export const FilmDetail = () => {
               <td>Release Date: {filmEntity.release_date ? <TextFormat value={filmEntity.release_date} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</td> 
             </tr>
           </table>
-        </Col>
-        <Col md="6">
         </Col>
       </Row>
       <Row className='mt-5'>

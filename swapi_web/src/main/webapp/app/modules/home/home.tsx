@@ -50,8 +50,8 @@ export const Home = () => {
           )}
 
           <p>
-            <Translate contentKey="home.like">If you like JHipster, do not forget to give us a star on</Translate>{' '}
-            <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
+            <Translate contentKey="home.like">Please, checkout the source code of this sample at</Translate>{' '}
+            <a href="https://github.com/rcandidosilva/swapi" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
             !

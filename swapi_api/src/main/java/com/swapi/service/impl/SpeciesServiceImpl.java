@@ -1,5 +1,6 @@
 package com.swapi.service.impl;
 
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 import com.swapi.service.dto.Species;
 import com.swapi.repository.SpeciesRepository;
@@ -38,4 +39,11 @@ public class SpeciesServiceImpl implements SpeciesService {
         LOG.debug("Request to get Species : {}", id);
         return speciesRepository.findById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ListRecord<Species> findByName(String name) {
+        LOG.debug("Request to get Species by name");
+        return speciesRepository.findByName(name);
+    }    
 }

@@ -1,5 +1,6 @@
 package com.swapi.service;
 
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 import com.swapi.service.dto.Species;
 import java.util.Optional;
@@ -22,4 +23,11 @@ public interface SpeciesService {
      * @return the entity.
      */
     Optional<Species> findOne(Long id);
+
+    /**
+     * Get species by name.
+     *
+     * @return the list of entities.
+     */
+    ListRecord<Species> findByName(String name);    
 }

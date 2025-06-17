@@ -9,7 +9,7 @@ import { ASC, DESC } from 'app/shared/util/pagination.constants'
 import { overrideSortStateWithQueryParams } from 'app/shared/util/entity-utils'
 import { useAppDispatch, useAppSelector } from 'app/config/store'
 
-import { getEntities } from './planet.reducer'
+import { getEntities, getEntitiesByName } from './planet.reducer'
 
 export const Planet = () => {
   const dispatch = useAppDispatch()
@@ -21,6 +21,12 @@ export const Planet = () => {
 
   const planetList = useAppSelector(state => state.planet.entities)
   const loading = useAppSelector(state => state.planet.loading)
+
+  const [inputSearch, setInputSearch] = useState('');
+
+  const handleInputSearch = (event) => {
+    setInputSearch(event.target.value);
+  };
 
   const getAllEntities = () => {
     dispatch(
@@ -38,6 +44,12 @@ export const Planet = () => {
     }
   }
 
+  const getAllEntitiesByName = (name: string) => {
+    dispatch(
+      getEntitiesByName(name),
+    )
+  }  
+
   useEffect(() => {
     sortEntities()
   }, [sortState.order, sortState.sort])
@@ -50,8 +62,8 @@ export const Planet = () => {
     })
   }
 
-  const handleSyncList = () => {
-    sortEntities()
+  const handleSearch = () => {
+    getAllEntitiesByName(inputSearch)
   }
 
   const getSortIconByFieldName = (fieldName: string) => {
@@ -71,14 +83,15 @@ export const Planet = () => {
             <div>              
               <p>What are you searching for?</p>              
               <form>
-                <div className="mb-3">
-                  <input type="text" className="form-control"/>
+                <div className="mb-3">                
+                  <input type="text" value={inputSearch} className="form-control" onChange={handleInputSearch}/>
                 </div>
                 <div className="d-grid gap-2">
-                  <button className="btn btn-info rounded-pill" type="button">SEARCH</button>
+                  <Button className="rounded-pill" color="info" onClick={handleSearch} disabled={loading}>                    
+                    SEARCH
+                  </Button>
                 </div>
-
-              </form>            
+              </form>                         
             </div>
           </Card>
         </div>

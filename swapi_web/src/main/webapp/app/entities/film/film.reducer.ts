@@ -35,6 +35,15 @@ export const getEntity = createAsyncThunk(
   { serializeError: serializeAxiosError },
 )
 
+export const getEntitiesByTitle = createAsyncThunk(
+  'person/fetch_entity_list_by_title',
+  async (title: string ) => {
+    const requestUrl = `${apiUrl}/?title=${title}`
+    return axios.get<IFilm[]>(requestUrl)
+  },
+  { serializeError: serializeAxiosError },
+)
+
 // slice
 
 export const FilmSlice = createEntitySlice({
@@ -67,6 +76,15 @@ export const FilmSlice = createEntitySlice({
         state.updateSuccess = false
         state.loading = true
       })
+      .addMatcher(isFulfilled(getEntitiesByTitle), (state, action) => {
+        const { data } = action.payload
+
+        return {
+          ...state,
+          loading: false,
+          entities: data
+        }
+      })        
   },
 })
 

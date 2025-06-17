@@ -1,5 +1,6 @@
 package com.swapi.service;
 
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 import com.swapi.service.dto.Vehicle;
 import java.util.Optional;
@@ -22,4 +23,11 @@ public interface VehicleService {
      * @return the entity.
      */
     Optional<Vehicle> findOne(Long id);
+
+    /**
+     * Get vehicle by name.
+     *
+     * @return the list of entities.
+     */
+    ListRecord<Vehicle> findByName(String name);        
 }

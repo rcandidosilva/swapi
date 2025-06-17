@@ -22,4 +22,14 @@ public class FilmRepository extends RestRepository<Film> {
         return response.getBody();
     }
 
+    public ListRecord<Film> findByTitle(String title) {
+        ResponseEntity<ListRecord<Film>> response;
+        try {
+            response = restTemplate.exchange(getPath() + "?title=" + title , HttpMethod.GET, null, new ParameterizedTypeReference<ListRecord<Film>>(){});
+        } catch (HttpStatusCodeException e) {
+            return null;
+        }
+        return response.getBody();
+    }
+
 }

@@ -84,7 +84,9 @@ Custom button styles
   }
 }
 
-.btn-info {  
+.btn-info,
+.btn-primary,
+.btn-success {  
   color: #fff;
   background: #0ab463;  
   border-color: #0ab463;
@@ -93,6 +95,41 @@ Custom button styles
     background: #fff;
     border-color: #0ab463;
   }
+  --bs-btn-active-bg: #fff;
+  --bs-btn-active-color: #0ab463;  
+  --bs-btn-active-border-color: #0ab463;  
+  --bs-btn-disabled-bg: #0ab463;  
+  --bs-btn-disabled-color: #fff;
+
+}
+
+
+
+.btn-secondary {  
+  color: #fff;
+  background: rgb(230, 130, 130);  
+  border-color: rgb(230, 130, 130);
+  &:hover {
+    color: rgb(230, 130, 130);
+    background: #fff;
+    border-color: rgb(230, 130, 130);
+  }
+}
+
+
+.form-control {
+  background-color: #fff;
+  &:focus {
+    background-color: #fff;
+  }
+}
+
+.form-check-input {
+  background-color: #fff;
+}
+
+.form-select {
+  background-color: #fff;
 }
 
 /* ==========================================================================

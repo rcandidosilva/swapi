@@ -26,22 +26,15 @@ export const PersonDetail = () => {
         </Col>
       </Row>
       <Row className='mt-5'>
-        <Col md="4">
+        <Col md="12">
           <h5 data-cy="personDetailsHeading">
             Details
           </h5>
           <hr className="hr" />
         </Col>
-        <Col md="1">&nbsp;</Col>
-        <Col md="4">
-          <h5 data-cy="personDetailsHeading">
-            Movies
-          </h5>
-          <hr className="hr" />
-        </Col>
       </Row>
       <Row className='mb-5'>
-        <Col md="6">
+        <Col md="12">
           <table>
             <tr>
               <td>Birth Year: {personEntity.birth_year}</td> 
@@ -65,8 +58,6 @@ export const PersonDetail = () => {
               <td>Mass: {personEntity.mass}</td> 
             </tr>
           </table>
-        </Col>
-        <Col md="6">
         </Col>
       </Row>
       <Row className='mt-5'>

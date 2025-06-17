@@ -2,6 +2,7 @@ package com.swapi.service.impl;
 
 import com.swapi.repository.PersonRepository;
 import com.swapi.service.PersonService;
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 import com.swapi.service.dto.Person;
 
@@ -38,5 +39,13 @@ public class PersonServiceImpl implements PersonService {
     public Optional<Person> findOne(Long id) {
         LOG.debug("Request to get Person : {}", id);
         return personRepository.findById(id);
+    }
+
+
+    @Override
+    @Transactional(readOnly = true)
+    public ListRecord<Person> findByName(String name) {
+        LOG.debug("Request to get People by name");
+        return personRepository.findByName(name);
     }
 }

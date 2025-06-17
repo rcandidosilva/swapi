@@ -39,4 +39,11 @@ public class FilmServiceImpl implements FilmService {
         LOG.debug("Request to get Film : {}", id);
         return filmRepository.findById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ListRecord<Film> findByTitle(String title) {
+        LOG.debug("Request to get Film by title");
+        return filmRepository.findByTitle(title);
+    }
 }

@@ -24,4 +24,11 @@ public interface FilmService {
      * @return the entity.
      */
     Optional<Film> findOne(Long id);
+
+    /**
+     * Get films by title.
+     *
+     * @return the list of entities.
+     */
+    ListRecord<Film> findByTitle(String title);
 }

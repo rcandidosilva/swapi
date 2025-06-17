@@ -1,6 +1,7 @@
 package com.swapi.service;
 
 import com.swapi.service.dto.Starship;
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 
 import java.util.Optional;
@@ -23,4 +24,11 @@ public interface StarshipService {
      * @return the entity.
      */
     Optional<Starship> findOne(Long id);
+
+    /**
+     * Get starship by name.
+     *
+     * @return the list of entities.
+     */
+    ListRecord<Starship> findByName(String name);       
 }

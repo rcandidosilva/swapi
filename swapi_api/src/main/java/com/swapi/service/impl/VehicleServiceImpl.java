@@ -3,6 +3,7 @@ package com.swapi.service.impl;
 import com.swapi.service.dto.Vehicle;
 import com.swapi.repository.VehicleRepository;
 import com.swapi.service.VehicleService;
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 
 import java.util.Optional;
@@ -39,4 +40,11 @@ public class VehicleServiceImpl implements VehicleService {
         LOG.debug("Request to get Vehicle : {}", id);
         return vehicleRepository.findById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ListRecord<Vehicle> findByName(String name) {
+        LOG.debug("Request to get Vehicle by name");
+        return vehicleRepository.findByName(name);
+    }      
 }

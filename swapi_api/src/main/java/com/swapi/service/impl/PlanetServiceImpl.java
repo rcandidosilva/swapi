@@ -3,6 +3,7 @@ package com.swapi.service.impl;
 import com.swapi.service.dto.Planet;
 import com.swapi.repository.PlanetRepository;
 import com.swapi.service.PlanetService;
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 
 import java.util.Optional;
@@ -39,4 +40,12 @@ public class PlanetServiceImpl implements PlanetService {
         LOG.debug("Request to get Planet : {}", id);
         return planetRepository.findById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ListRecord<Planet> findByName(String name) {
+        LOG.debug("Request to get Planet by name");
+        return planetRepository.findByName(name);
+    }
+    
 }

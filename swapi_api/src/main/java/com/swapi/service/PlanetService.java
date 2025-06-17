@@ -1,5 +1,6 @@
 package com.swapi.service;
 
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 import com.swapi.service.dto.Planet;
 import java.util.Optional;
@@ -22,4 +23,11 @@ public interface PlanetService {
      * @return the entity.
      */
     Optional<Planet> findOne(Long id);
+
+    /**
+     * Get planets by name.
+     *
+     * @return the list of entities.
+     */
+    ListRecord<Planet> findByName(String name);
 }

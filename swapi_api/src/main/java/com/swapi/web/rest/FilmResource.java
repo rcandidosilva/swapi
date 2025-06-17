@@ -2,7 +2,6 @@ package com.swapi.web.rest;
 
 import com.swapi.service.dto.Film;
 import com.swapi.service.dto.PageItem;
-import com.swapi.service.dto.PageList;
 import com.swapi.service.FilmService;
 
 import java.util.List;
@@ -39,8 +38,8 @@ public class FilmResource {
     @GetMapping("")
     public List<PageItem> getAllFilms(@RequestParam(name = "eagerload", required = false, defaultValue = "true") boolean eagerload) {
         LOG.debug("REST request to get all Films");
-        return filmService.findAllFilms().getResult().stream()
-            .map(r -> new PageItem(r.getUid(), r.getProperties().title(), null)).collect(Collectors.toList());            
+        return filmService.findAllFilms().result().stream()
+            .map(r -> new PageItem(r.uid(), r.properties().title(), null)).collect(Collectors.toList());            
     }
 
     /**
@@ -55,4 +54,17 @@ public class FilmResource {
         Optional<Film> film = filmService.findOne(id);
         return ResponseUtil.wrapOrNotFound(film);
     }
+
+    /**
+     * {@code GET  /films/?title=} : get list of films by "title".
+     *
+     * @param title the title of the film to search by.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list film people in body.
+     */
+    @GetMapping("/")
+    public List<PageItem> getFilmsByTitle(@RequestParam("title") String title) {
+        LOG.debug("REST request to get Film by title : {}", title);
+        return filmService.findByTitle(title).result().stream()
+            .map(r -> new PageItem(r.uid(), r.properties().title(), null)).collect(Collectors.toList());       
+    }    
 }

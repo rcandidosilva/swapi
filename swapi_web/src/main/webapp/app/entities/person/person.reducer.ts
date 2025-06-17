@@ -36,6 +36,15 @@ export const getEntity = createAsyncThunk(
   { serializeError: serializeAxiosError },
 )
 
+export const getEntitiesByName = createAsyncThunk(
+  'person/fetch_entity_list_by_name',
+  async (name: string ) => {
+    const requestUrl = `${apiUrl}/?name=${name}`
+    return axios.get<IItem[]>(requestUrl)
+  },
+  { serializeError: serializeAxiosError },
+)
+
 // slice
 
 export const PersonSlice = createEntitySlice({
@@ -63,11 +72,20 @@ export const PersonSlice = createEntitySlice({
           }),
         }
       })
-      .addMatcher(isPending(getEntities, getEntity), state => {
+      .addMatcher(isPending(getEntities, getEntity, getEntitiesByName), state => {
         state.errorMessage = null
         state.updateSuccess = false
         state.loading = true
       })
+      .addMatcher(isFulfilled(getEntitiesByName), (state, action) => {
+        const { data } = action.payload
+
+        return {
+          ...state,
+          loading: false,
+          entities: data
+        }
+      })      
   },
 })
 

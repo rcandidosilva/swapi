@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.spring.boot)
     id "jhipster.spring-cache-conventions"
     id "jhipster.docker-conventions"
-    id "jhipster.code-quality-conventions"
     id "org.liquibase.gradle"
     // jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }

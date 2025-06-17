@@ -3,6 +3,7 @@ import { createAsyncThunk, isFulfilled, isPending } from '@reduxjs/toolkit'
 import { ASC } from 'app/shared/util/pagination.constants'
 import { EntityState, IQueryParams, createEntitySlice, serializeAxiosError } from 'app/shared/reducers/reducer.utils'
 import { IPlanet, defaultValue } from 'app/shared/model/planet.model'
+import { IItem } from 'app/shared/model/item.model'
 
 const initialState: EntityState<IPlanet> = {
   loading: false,
@@ -31,6 +32,15 @@ export const getEntity = createAsyncThunk(
   async (id: string | number) => {
     const requestUrl = `${apiUrl}/${id}`
     return axios.get<IPlanet>(requestUrl)
+  },
+  { serializeError: serializeAxiosError },
+)
+
+export const getEntitiesByName = createAsyncThunk(
+  'person/fetch_entity_list_by_name',
+  async (name: string ) => {
+    const requestUrl = `${apiUrl}/?name=${name}`
+    return axios.get<IItem[]>(requestUrl)
   },
   { serializeError: serializeAxiosError },
 )
@@ -67,6 +77,15 @@ export const PlanetSlice = createEntitySlice({
         state.updateSuccess = false
         state.loading = true
       })
+      .addMatcher(isFulfilled(getEntitiesByName), (state, action) => {
+        const { data } = action.payload
+
+        return {
+          ...state,
+          loading: false,
+          entities: data
+        }
+      })       
   },
 })
 

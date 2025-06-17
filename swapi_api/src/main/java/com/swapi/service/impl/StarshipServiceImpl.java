@@ -3,6 +3,7 @@ package com.swapi.service.impl;
 import com.swapi.service.dto.Starship;
 import com.swapi.repository.StarshipRepository;
 import com.swapi.service.StarshipService;
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 
 import java.util.Optional;
@@ -39,4 +40,11 @@ public class StarshipServiceImpl implements StarshipService {
         LOG.debug("Request to get Starship : {}", id);
         return starshipRepository.findById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ListRecord<Starship> findByName(String name) {
+        LOG.debug("Request to get Starship by name");
+        return starshipRepository.findByName(name);
+    }      
 }

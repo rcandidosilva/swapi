@@ -2,6 +2,7 @@ package com.swapi.service;
 
 import java.util.Optional;
 
+import com.swapi.service.dto.ListRecord;
 import com.swapi.service.dto.PageList;
 import com.swapi.service.dto.Person;
 
@@ -24,5 +25,12 @@ public interface PersonService {
      * @return the entity.
      */
     Optional<Person> findOne(Long id);
+
+    /**
+     * Get people by name.
+     *
+     * @return the list of entities.
+     */
+    ListRecord<Person> findByName(String name);
 
 }

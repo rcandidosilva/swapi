@@ -8,11 +8,11 @@ export interface ISpecies {
   name?: string | null
   classification?: string | null
   designation?: string | null
-  averageHeight?: number | null
-  skinColors?: string | null
-  hairColors?: string | null
-  eyeColors?: string | null
-  averageLifespan?: number | null
+  average_height?: number | null
+  skin_colors?: string | null
+  hair_colors?: string | null
+  eye_colors?: string | null
+  average_lifespan?: number | null
   languages?: string | null
   homeworld?: IPlanet | null
 }

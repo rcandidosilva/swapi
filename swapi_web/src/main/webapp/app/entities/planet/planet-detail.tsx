@@ -25,7 +25,7 @@ export const PlanetDetail = () => {
         </Col>
       </Row>
       <Row className='mt-5'>
-        <Col md="4">
+        <Col md="12">
           <h5 data-cy="filmDetailsHeading">
             Details
           </h5>
@@ -33,7 +33,7 @@ export const PlanetDetail = () => {
         </Col>
       </Row>
       <Row className='mb-5'>
-        <Col md="6">
+        <Col md="12">
           <table>
             <tr>
               <td>Rotation Period: {planetEntity.rotation_period}</td> 
@@ -60,8 +60,6 @@ export const PlanetDetail = () => {
               <td>Population: {planetEntity.population}</td> 
             </tr>                                                
           </table>
-        </Col>
-        <Col md="6">
         </Col>
       </Row>      
       <Row className='mt-5'>

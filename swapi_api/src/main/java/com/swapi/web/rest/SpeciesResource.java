@@ -5,6 +5,8 @@ import com.swapi.service.dto.Species;
 import com.swapi.service.SpeciesService;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -49,4 +51,17 @@ public class SpeciesResource {
         Optional<Species> species = speciesService.findOne(id);
         return ResponseUtil.wrapOrNotFound(species);
     }
+
+    /**
+     * {@code GET  /species/?name=} : get list of species by "name".
+     *
+     * @param name the name of the species to search by.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of species in body.
+     */
+    @GetMapping("/")
+    public List<PageItem> getPeopleByName(@RequestParam("name") String name) {
+        LOG.debug("REST request to get Species by name : {}", name);
+        return speciesService.findByName(name).result().stream()
+            .map(r -> new PageItem(r.uid(), r.properties().name(), null)).collect(Collectors.toList());       
+    }      
 }
