@@ -46,7 +46,6 @@ cd swapi_web && ./npmw install --save-dev --save-exact @types/leaflet
 Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
 Note: There are still a few other things remaining to do for Leaflet that we won't detail here.
 
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
 
 ## Building for production
 
@@ -64,10 +63,6 @@ To ensure everything worked, run:
 ```
 java -jar build/libs/*.jar
 ```
-
-Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-
-Refer to [Using JHipster in production][] for more details.
 
 ### Packaging as war
 
@@ -108,3 +103,5 @@ To stop and remove the containers, run:
 ```
 docker compose down
 ```
+
+Then navigate to [http://localhost](http://localhost) in your browser.
