@@ -67,6 +67,8 @@ out/
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+.devcontainer
+/swapi_api/.devcontainer
 
 ######################
 # Maven
@@ -81,6 +83,8 @@ out/
 /build/
 /buildSrc/.gradle/
 /buildSrc/build/
+/swapi_api/build
+/swapi_api/buildSrc
 
 ######################
 # Package Files
