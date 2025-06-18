@@ -1,19 +1,25 @@
+sourceSets {
+    test {
+        java {
+            exclude 'com/swapi//config/PostgreSqlTestContainer.java'
+        }
+    }
+}
+
 dependencies {
-    implementation "org.postgresql:postgresql"
-    testImplementation "org.testcontainers:postgresql"
+    developmentOnly "org.springframework.boot:spring-boot-devtools"
+    implementation "com.h2database:h2"
     // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 
 ext {
     springProfiles = "prod" + springProfiles
-
-    if (project.hasProperty("api-docs")) {
-        springProfiles += ",api-docs"
-    }
 }
 
 springBoot {
-    buildInfo()
+    buildInfo {
+        excludes = ['time']
+    }
 }
 
 bootRun {
@@ -44,7 +50,7 @@ task integrationTest(type: Test) {
         events 'FAILED', 'SKIPPED'
         exceptionFormat "full"
     }
-    systemProperty('spring.profiles.active', 'test,testprod')
+    systemProperty('spring.profiles.active', 'test,testdev')
     systemProperty('java.security.egd', 'file:/dev/./urandom')
     // uncomment if the tests reports are not generated
     // see https://github.com/jhipster/generator-jhipster/pull/2771 and https://github.com/jhipster/generator-jhipster/pull/4484
@@ -52,5 +58,4 @@ task integrationTest(type: Test) {
     reports.html.required = false
 }
 integrationTest.dependsOn test
-
 

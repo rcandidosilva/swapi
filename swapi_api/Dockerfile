@@ -3,7 +3,7 @@ FROM gradle:8.14 AS builder
 
 WORKDIR /app
 COPY . .
-RUN ./gradlew bootJar -Pdev
+RUN ./gradlew bootJar -Pprod
 
 # Stage 1: Final image
 FROM alpine/java:21-jdk

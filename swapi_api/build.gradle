@@ -5,10 +5,7 @@ plugins {
     id "eclipse"
     id "com.gorylenko.gradle-git-properties"
     alias(libs.plugins.spring.boot)
-    id "jhipster.spring-cache-conventions"
-    id "jhipster.docker-conventions"
     id "org.liquibase.gradle"
-    // jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
 group = "com.swapi"
@@ -164,6 +161,10 @@ dependencies {
     annotationProcessor "org.glassfish.jaxb:jaxb-runtime"
     annotationProcessor "org.hibernate.orm:hibernate-jpamodelgen"
     developmentOnly "org.springframework.boot:spring-boot-docker-compose"
+    implementation "org.springframework.boot:spring-boot-starter-cache"
+    implementation "javax.cache:cache-api"
+    implementation group: "org.ehcache", name: "ehcache", classifier: "jakarta"
+    implementation "org.hibernate.orm:hibernate-jcache"    
     // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 
